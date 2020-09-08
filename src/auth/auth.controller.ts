@@ -35,6 +35,7 @@ export class AuthController {
     @Body(ValidationPipe) userAuthDto: UserAuthDto,
     @Res() res: any,
   ): Promise<void> {
+    console.log('happening?');
     await this.authService.signIn(userAuthDto, res);
   }
   @Post('/loggedin')
