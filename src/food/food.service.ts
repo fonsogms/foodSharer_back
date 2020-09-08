@@ -6,6 +6,7 @@ import { Food } from './food.entity';
 import { v2 as cloudinary } from 'cloudinary';
 import { JwtPayload } from 'src/auth/userPayload.interface';
 import { SearchFoodDto } from './dto/searchFood.dto';
+import { FoodItem } from './FoodItem.interface';
 
 @Injectable()
 export class FoodService {
@@ -25,9 +26,21 @@ export class FoodService {
       where: { id: id, owner: user.id },
     });
     if (!food) {
-      throw new NotFoundException('Food not Found :(');
+      throw new NotFoundException(
+        'Food not Found :( or you dont have access to this item',
+      );
     }
     return food;
+  }
+  async getFoodDetails(id: number): Promise<Food> {
+    let foundFood = await this.foodRepository.findOne({
+      where: { id: id },
+    });
+    if (!foundFood) {
+      throw new NotFoundException('Food not Found :(');
+    }
+
+    return foundFood;
   }
   async delete(id: number, user: JwtPayload): Promise<Food> {
     const foundFood = await this.getFoodById(id, user);

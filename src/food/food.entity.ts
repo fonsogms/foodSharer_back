@@ -6,7 +6,7 @@ import {
   BaseEntity,
 } from 'typeorm';
 import { User } from 'src/auth/user.entity';
-interface Pictures {
+export interface Pictures {
   url: string;
   public_id: string;
 }

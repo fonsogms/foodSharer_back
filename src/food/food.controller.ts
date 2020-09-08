@@ -52,6 +52,10 @@ export class FoodController {
     const { id } = data;
     return this.foodService.deleteCloudinary(id);
   }
+  @Get('/details/:id')
+  async getFoodDetails(@Param('id') id: number) {
+    return this.foodService.getFoodDetails(id);
+  }
   @Get('/:id')
   async getFoodById(
     @Param('id') id: number,
