@@ -33,8 +33,9 @@ export class AuthService {
       throw new UnauthorizedException('Wrong credentials');
     } else {
       res.cookie('jid', token, {
-        httpOnly: false,
+        httpOnly: true,
         path: '/api/auth/loggedin',
+        sameSite: 'none',
       });
       res.json({ token });
     }
@@ -64,8 +65,9 @@ export class AuthService {
     token = this.jwtService.sign({ username: user.username, id: id });
     console.log('new changes?');
     res.cookie('jid', token, {
-      httpOnly: false,
+      httpOnly: true,
       path: '/api/auth/loggedin',
+      sameSite: 'none',
     });
     res.json({ token });
   }
@@ -73,8 +75,9 @@ export class AuthService {
     console.log('new changes?');
 
     res.cookie('jid', '', {
-      httpOnly: false,
+      httpOnly: true,
       path: '/api/auth/loggedin',
+      sameSite: 'none',
     });
     res.json('ok');
   }
