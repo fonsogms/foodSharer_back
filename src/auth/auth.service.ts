@@ -31,7 +31,7 @@ export class AuthService {
       throw new UnauthorizedException('Wrong credentials');
     } else {
       res.cookie('jid', token, {
-        httpOnly: true,
+        httpOnly: false,
         path: '/api/auth/loggedin',
       });
       res.json({ token });
@@ -61,7 +61,7 @@ export class AuthService {
 
     token = this.jwtService.sign({ username: user.username, id: id });
     res.cookie('jid', token, {
-      httpOnly: true,
+      httpOnly: false,
       path: '/api/auth/loggedin',
     });
     res.json({ token });
