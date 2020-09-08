@@ -7,6 +7,7 @@ export const typeOrmConfig = (): TypeOrmModuleOptions => {
     return {
       /*  url:
         'postgres://ptvdcukdnbrbyd:339856c1cd0e584e15cc3a2ddb7d43229a127183631d93ffae6563116f3951b3@ec2-52-30-161-203.eu-west-1.compute.amazonaws.com:5432/d7go4np2upmo0u', */
+      type: 'postgres',
       host: 'ec2-52-30-161-203.eu-west-1.compute.amazonaws.com',
       database: 'd7go4np2upmo0u',
       username: 'ptvdcukdnbrbyd',
