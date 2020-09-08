@@ -7,7 +7,7 @@ import { v2 as cloudinary } from 'cloudinary';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://foodsharerserver.herokuapp.com'],
+    origin: ['http://localhost:3000', 'https://foodsharer.herokuapp.com'],
     credentials: true,
   });
   app.use(cookieParser());
