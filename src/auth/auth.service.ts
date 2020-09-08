@@ -24,6 +24,8 @@ export class AuthService {
     return { token };
   }
   async signIn(userAuthDto: UserAuthDto, res: Response): Promise<void> {
+    console.log('new changes?');
+
     const user = await this.userRepository.validateUserPassword(userAuthDto);
     const payload: JwtPayload = { username: user.username, id: user.id };
     const token = this.jwtService.sign(payload);
@@ -60,6 +62,7 @@ export class AuthService {
     }
 
     token = this.jwtService.sign({ username: user.username, id: id });
+    console.log('new changes?');
     res.cookie('jid', token, {
       httpOnly: false,
       path: '/api/auth/loggedin',
@@ -67,8 +70,10 @@ export class AuthService {
     res.json({ token });
   }
   async logout(req: Request, res: Response) {
+    console.log('new changes?');
+
     res.cookie('jid', '', {
-      httpOnly: true,
+      httpOnly: false,
       path: '/api/auth/loggedin',
     });
     res.json('ok');
