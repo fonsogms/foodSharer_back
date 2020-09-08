@@ -36,6 +36,7 @@ export class AuthService {
         httpOnly: true,
         path: '/api/auth/loggedin',
         sameSite: 'none',
+        secure: true,
       });
       res.json({ token });
     }
@@ -68,6 +69,7 @@ export class AuthService {
       httpOnly: true,
       path: '/api/auth/loggedin',
       sameSite: 'none',
+      secure: true,
     });
     res.json({ token });
   }
@@ -78,6 +80,7 @@ export class AuthService {
       httpOnly: true,
       path: '/api/auth/loggedin',
       sameSite: 'none',
+      secure: true,
     });
     res.json('ok');
   }
