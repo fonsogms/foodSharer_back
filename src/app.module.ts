@@ -8,7 +8,7 @@ import { PassportModule } from '@nestjs/passport';
   imports: [
     FoodModule,
     AuthModule,
-    TypeOrmModule.forRoot(typeOrmConfig),
+    TypeOrmModule.forRoot(typeOrmConfig()),
     PassportModule,
   ],
 })
