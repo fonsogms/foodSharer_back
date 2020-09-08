@@ -27,10 +27,6 @@ export class AuthController {
     return this.authService.signUp(userAuthDto);
   }
   @Post('/signIn')
-  // no try and catch in the controller thats a nono
-
-  //@Req() req:Request
-  //req.res.setCookie()
   async signIn(
     @Body(ValidationPipe) userAuthDto: UserAuthDto,
     @Res() res: any,

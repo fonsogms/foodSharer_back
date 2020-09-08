@@ -20,10 +20,10 @@ export class User extends BaseEntity {
   password: string;
   @Column()
   salt: string;
-  @Column({ default: null })
-  phone: string | null;
-  @Column({ default: null })
-  mail: string | null;
+  @Column({ default: '' })
+  phone: string;
+  @Column({ default: '' })
+  mail: string;
   @Column()
   address: string;
   @Column('float8')
