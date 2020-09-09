@@ -84,10 +84,4 @@ export class AuthService {
     });
     res.json('ok');
   }
-  async getUserProfile(user: JwtPayload): Promise<User> {
-    const profile = await this.userRepository.findOne({ id: user.id });
-    delete profile.salt;
-    delete profile.password;
-    return profile;
-  }
 }

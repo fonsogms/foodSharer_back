@@ -9,6 +9,7 @@ import {
 } from 'typeorm';
 import { Food } from 'src/food/food.entity';
 import * as bcrypt from 'bcrypt';
+import { UserAuthDto } from './dto/userAuth.dto';
 @Entity()
 @Unique(['username'])
 export class User extends BaseEntity {
@@ -41,5 +42,13 @@ export class User extends BaseEntity {
     const hash = await bcrypt.hash(password, this.salt);
 
     return hash === this.password;
+  }
+  async changePassword(userAuthDto: UserAuthDto) {
+    const { username, password } = userAuthDto;
+    const salt = await bcrypt.genSalt();
+    this.username = username;
+    this.password = await bcrypt.hash(password, salt);
+    this.salt = salt;
+    await this.save();
   }
 }

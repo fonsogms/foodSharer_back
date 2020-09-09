@@ -22,11 +22,8 @@ export class UserRepository extends Repository<User> {
     user.address = '';
     user.latitude = 0;
     user.longitude = 0;
-    console.log(user, 'this is the user');
     try {
-      console.log('happening?');
       const createdUser = await user.save();
-      console.log('happening?');
 
       return { username: createdUser.username, id: createdUser.id };
     } catch (error) {
@@ -44,10 +41,8 @@ export class UserRepository extends Repository<User> {
       throw new UnauthorizedException('Wrong credentials');
     }
     if (user && (await user.validatePassword(password))) {
-      console.log('this');
       return user;
     } else {
-      console.log('or this');
       return null;
     }
   }

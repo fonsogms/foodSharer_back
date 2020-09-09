@@ -43,9 +43,4 @@ export class AuthController {
   async logout(@Req() req: Request, @Res() res: Response) {
     await this.authService.logout(req, res);
   }
-  @Get('/profile')
-  @UseGuards(AuthGuard())
-  async getUserProfile(@GetUser() user: JwtPayload): Promise<User> {
-    return await this.authService.getUserProfile(user);
-  }
 }
