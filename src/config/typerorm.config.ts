@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const typeOrmConfig = (): TypeOrmModuleOptions => {
-  console.log(process.env);
+  console.log(process.env.DATABASE_URL);
   if (process.env.DATABASE_URL) {
     console.log('working?');
     console.log(process.env);
