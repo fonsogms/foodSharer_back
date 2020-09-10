@@ -5,6 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typerorm.config';
 import { PassportModule } from '@nestjs/passport';
 import { ProfileModule } from './profile/profile.module';
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 @Module({
   imports: [
     FoodModule,

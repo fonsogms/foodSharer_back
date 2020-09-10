@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const typeOrmConfig = (): TypeOrmModuleOptions => {
-  console.log(process.env.DATABASE_URL);
   if (process.env.DATABASE_URL) {
     console.log('working?');
     console.log(process.env.DATABASE_URL, 'here gimme');
@@ -13,17 +12,16 @@ export const typeOrmConfig = (): TypeOrmModuleOptions => {
       entities: [__dirname + '/../**/*.entity.js'],
       synchronize: true,
     };
+  } else {
+    return {
+      type: 'postgres',
+      host: 'localhost',
+      port: 5433,
+      username: 'postgres',
+      password: 'tito-1992',
+      database: 'foodsharer',
+      entities: [__dirname + '/../**/*.entity.js'],
+      synchronize: true,
+    };
   }
-  // else {
-  //   return {
-  //     type: 'postgres',
-  //     host: 'localhost',
-  //     port: 5433,
-  //     username: 'postgres',
-  //     password: 'tito-1992',
-  //     database: 'foodsharer',
-  //     entities: [__dirname + '/../**/*.entity.js'],
-  //     synchronize: true,
-  //   };
-  // }
 };
