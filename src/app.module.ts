@@ -5,8 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typerorm.config';
 import { PassportModule } from '@nestjs/passport';
 import { ProfileModule } from './profile/profile.module';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { UploadModule } from './upload/upload.module';
+import 'dotenv/config';
 
 @Module({
   imports: [
@@ -15,6 +15,7 @@ dotenv.config();
     TypeOrmModule.forRoot(typeOrmConfig()),
     PassportModule,
     ProfileModule,
+    UploadModule,
   ],
 })
 export class AppModule {}
