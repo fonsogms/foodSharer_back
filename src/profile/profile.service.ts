@@ -4,6 +4,7 @@ import { User } from 'src/auth/user.entity';
 import { UserRepository } from 'src/auth/user.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ProfileDto } from './dto/profile.dto';
+import { Food } from 'src/food/food.entity';
 
 @Injectable()
 export class ProfileService {
@@ -27,5 +28,10 @@ export class ProfileService {
     delete profile.password;
     delete profile.salt;
     return profile;
+  }
+  async getUserProfileFood(user: JwtPayload): Promise<Food[]> {
+    const profile = await this.userRepository.findOne({ id: user.id });
+
+    return profile.food;
   }
 }

@@ -8,6 +8,7 @@ import { SearchFoodDto } from './dto/searchFood.dto';
 export class FoodRepository extends Repository<Food> {
   async add(foodDto: FoodDto, user: User): Promise<Food> {
     const foodItem = new Food();
+
     for (let key of Object.keys(foodDto)) {
       foodItem[key] = foodDto[key];
     }

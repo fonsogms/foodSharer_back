@@ -20,6 +20,8 @@ export class Food extends BaseEntity {
   expiryDate: string;
   @Column()
   description: string;
+  @Column()
+  contact: string;
   @Column('float8')
   latitude: number;
   @Column('float8')

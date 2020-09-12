@@ -19,6 +19,9 @@ export class FoodDto {
   expiryDate: string;
   @IsString()
   description: string;
+  @IsString()
+  @IsNotEmpty()
+  contact: string;
   @IsNumber()
   latitude: number;
   @IsNumber()
