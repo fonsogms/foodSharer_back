@@ -10,3 +10,4 @@ export class UploadModule implements NestModule {
     consumer.apply(parser.single('image')).forRoutes(UploadController);
   }
 }
+

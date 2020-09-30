@@ -8,7 +8,11 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: ['http://localhost:3000', 'https://foodsharer.herokuapp.com'],
+    origin: [
+      'http://localhost:3000',
+      'https://foodsharer.herokuapp.com',
+      'https://foodsharer-2642b.web.app/',
+    ],
     credentials: true,
   });
   app.use(cookieParser());
