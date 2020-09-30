@@ -11,7 +11,7 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'https://foodsharer.herokuapp.com',
-      'https://foodsharer-2642b.web.app/',
+      'https://foodsharer-2642b.web.app',
     ],
     credentials: true,
   });
