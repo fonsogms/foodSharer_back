@@ -12,7 +12,7 @@ async function bootstrap() {
       'http://localhost:3000',
       'https://foodsharer.herokuapp.com',
       'https://foodsharer-2642b.web.app',
-      ' https://master.ds4i4rarwawut.amplifyapp.com',
+      'https://master.ds4i4rarwawut.amplifyapp.com',
     ],
     credentials: true,
   });
